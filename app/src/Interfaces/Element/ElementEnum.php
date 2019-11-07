@@ -26,4 +26,32 @@ class ElementEnum
         self::ID_AIR   => self::NAME_AIR,
         self::ID_EARTH => self::NAME_EARTH,
     ];
+
+    /**
+     * @param $elementId int
+     * @return string
+     */
+    public static function getElementById($elementId) : string
+    {
+        if (isset(self::$elementMap[$elementId])) {
+            return self::$elementMap[$elementId];
+        }
+
+        return self::$elementMap[self::ID_NONE];
+    }
+
+    /**
+     * @param $elementName
+     * @return int
+     */
+    public static function getElementIdByName($elementName) : int
+    {
+        $flip = array_flip(self::$elementMap);
+
+        if (isset($flip[$elementName])) {
+            return $flip[$elementName];
+        }
+
+        return $flip[self::NAME_NONE];
+    }
 }

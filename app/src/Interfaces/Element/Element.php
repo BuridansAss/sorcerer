@@ -6,5 +6,13 @@ namespace App\src\Interfaces\Element;
 
 interface Element
 {
-    public function getElement();
+    /**
+     * @return string
+     */
+    public function getElementName() : string;
+
+    /**
+     * @return int
+     */
+    public function getElementId() : int;
 }
